@@ -25,13 +25,13 @@
   },
   "devDependencies": {
     "beefy": "^2.1.5",
-    "browserify": "^10.2.6",
+    "browserify": "^15.2.0",
     "bundle-collapser": "^1.2.0",
     "derequire": "^2.0.0",
     "indexeddbshim": "^2.0.1",
     "standard": "^6.0.7",
     "tape": "^4.1.0",
-    "uglify-js": "^2.4.23"
+    "uglify-es": "^3.3.9"
   },
   "repository": {
     "type": "git",
