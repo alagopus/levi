@@ -209,7 +209,7 @@ var list = [{
 }]
 
 test('Search options', function (t) {
-  t.plan(20)
+  t.plan(22)
 
   lv.batch(list.map(function (doc) {
     return {type: 'put', key: doc.id, value: doc}
@@ -273,6 +273,14 @@ test('Search options', function (t) {
       H(arr).pluck('key').toArray(function (arr) {
         t.deepEqual(arr, ['b', 'c', 'a'], 'object search: correct order')
       })
+    })
+
+    lv.termStream({
+      limit: 1,
+      prefix: 'plumb'
+    }).toArray(function (arr) {
+      t.equal(arr.length, 1, 'term search: finds prefix inclusive')
+      t.deepEqual(arr, [ { key: '@plumb', value: 2 } ], 'term search: first and sole document')
     })
   })
 })
